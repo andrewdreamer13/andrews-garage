@@ -14,6 +14,7 @@ const rootFolder = path.basename(path.resolve());
 
 export default defineConfig(({ mode }) => {
   const isGH = mode === "github";
+  const rootFolder = "andrews-garage";
 
   return {
     base: isGH ? `/${rootFolder}/` : "./",
@@ -21,7 +22,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       injectHTML(),
       Sitemap({
-        hostname: "https://your-client-domain.com",
+        hostname: "https://andrews-garage.github.io",
         // dynamicRoutes: ["/about", "/contacts", "/services"],
         readable: true,
       }),

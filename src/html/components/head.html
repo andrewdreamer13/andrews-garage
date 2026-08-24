@@ -24,12 +24,4 @@
   <meta name="theme-color" content="{=$theme-color}" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.png" />
-
-  <script>
-    (function () {
-      const savedTheme = localStorage.getItem("theme");
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", savedTheme || systemTheme);
-    })();
-  </script>
 </head>
