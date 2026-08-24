@@ -7,10 +7,10 @@
   width: 100% !important;
   @include t.fluid-prop("max-width", 270, 310, 320, 825);
   box-sizing: border-box;
-  border: 1px solid t.$colorBlack;
+  border: 1px solid t.$colorLightBg;
   background: t.$colorAccent !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  color: t.$colorBlack;
+  color: t.$colorLightBg;
 
   .flatpickr-days,
   .dayContainer {
@@ -31,16 +31,16 @@
   .flatpickr-months {
     .flatpickr-month {
       background: transparent;
-      fill: t.$colorBlack;
-      color: t.$colorBlack;
+      fill: t.$colorLightBg;
+      color: t.$colorLightBg;
     }
 
     .flatpickr-current-month {
-      color: t.$colorBlack;
+      color: t.$colorLightBg;
       font-weight: 600;
 
       .cur-month {
-        color: t.$colorBlack;
+        color: t.$colorLightBg;
         font-weight: 700;
       }
 
@@ -55,7 +55,7 @@
           border-radius: 4px;
           background: transparent !important;
           box-shadow: none !important;
-          color: t.$colorBlack !important;
+          color: t.$colorLightBg !important;
           font-weight: 700;
         }
 
@@ -64,16 +64,16 @@
           opacity: 1 !important;
 
           &.arrowUp::after {
-            border-bottom-color: t.$colorBlack !important;
+            border-bottom-color: t.$colorLightBg !important;
           }
           &.arrowDown::after {
-            border-top-color: t.$colorBlack !important;
+            border-top-color: t.$colorLightBg !important;
           }
         }
 
         &:hover,
         &:focus-within {
-          background: t.$colorBlack !important;
+          background: t.$colorLightBg !important;
 
           input.cur-year {
             color: t.$colorAccent !important;
@@ -97,11 +97,11 @@
 
     .flatpickr-prev-month,
     .flatpickr-next-month {
-      fill: t.$colorBlack;
-      color: t.$colorBlack;
+      fill: t.$colorLightBg;
+      color: t.$colorLightBg;
 
       &:hover svg {
-        fill: t.$colorBlack !important;
+        fill: t.$colorLightBg !important;
         opacity: 0.7;
       }
     }
@@ -109,28 +109,28 @@
 
   span.flatpickr-weekday {
     background: transparent;
-    color: t.$colorBlack;
+    color: t.$colorLightBg;
     font-weight: 700;
   }
 
   .flatpickr-day {
-    color: t.$colorBlack;
+    color: t.$colorLightBg;
     transition:
       color 0.15s ease,
       background-color 0.15s ease;
 
     &:not(.flatpickr-disabled):hover,
     &:not(.flatpickr-disabled):focus {
-      border-color: t.$colorBlack !important;
-      background: t.$colorBlack !important;
+      border-color: t.$colorLightBg !important;
+      background: t.$colorLightBg !important;
       color: t.$colorAccent !important;
     }
 
     &.today {
-      border-color: t.$colorBlack;
+      border-color: t.$colorLightBg;
 
       &:not(.flatpickr-disabled):hover {
-        background: t.$colorBlack !important;
+        background: t.$colorLightBg !important;
         color: t.$colorAccent !important;
       }
     }
@@ -151,8 +151,8 @@
 
     &.selected,
     &.selected:hover {
-      border-color: t.$colorBlack !important;
-      background: t.$colorBlack !important;
+      border-color: t.$colorLightBg !important;
+      background: t.$colorLightBg !important;
       color: t.$colorAccent !important;
       font-weight: 700;
       opacity: 1 !important;
@@ -160,29 +160,29 @@
   }
 
   .flatpickr-time {
-    border-top: 1px solid t.$colorBlack !important;
+    border-top: 1px solid t.$colorLightBg !important;
     background: transparent !important;
 
     *::selection {
-      background: t.$colorBlack !important;
+      background: t.$colorLightBg !important;
       color: t.$colorAccent !important;
     }
 
     .flatpickr-time-separator {
-      color: t.$colorBlack !important;
+      color: t.$colorLightBg !important;
       font-weight: 700;
     }
 
     .flatpickr-am-pm {
       background: transparent !important;
-      color: t.$colorBlack !important;
+      color: t.$colorLightBg !important;
       font-weight: 600;
 
       &:hover,
       &:focus,
       &:active {
         outline: none;
-        background: t.$colorBlack !important;
+        background: t.$colorLightBg !important;
         color: t.$colorAccent !important;
       }
     }
@@ -193,14 +193,14 @@
       input {
         background: transparent !important;
         box-shadow: none !important;
-        color: t.$colorBlack !important;
+        color: t.$colorLightBg !important;
         font-weight: 600;
 
         &:focus,
         &:active,
         &.active {
           outline: none !important;
-          background: t.$colorBlack !important;
+          background: t.$colorLightBg !important;
           box-shadow: none !important;
           color: t.$colorAccent !important;
         }
@@ -211,17 +211,17 @@
         opacity: 1 !important;
 
         &.arrowUp::after {
-          border-bottom-color: t.$colorBlack !important;
+          border-bottom-color: t.$colorLightBg !important;
         }
 
         &.arrowDown::after {
-          border-top-color: t.$colorBlack !important;
+          border-top-color: t.$colorLightBg !important;
         }
       }
 
       &:hover,
       &:focus-within {
-        background: t.$colorBlack !important;
+        background: t.$colorLightBg !important;
 
         input {
           background: transparent !important;
@@ -246,8 +246,8 @@
 
   .flatpickr-confirm {
     padding: 12px 10px;
-    border-top: 1px solid t.$colorBlack;
-    background: t.$colorBlack !important;
+    border-top: 1px solid t.$colorLightBg;
+    background: t.$colorLightBg !important;
     color: t.$colorAccent !important;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -259,13 +259,13 @@
     }
 
     &:hover {
-      background: t.$colorBlack !important;
+      background: t.$colorLightBg !important;
       color: t.$colorAccent !important;
       opacity: 0.85;
     }
 
     &.darkTheme {
-      background: t.$colorBlack !important;
+      background: t.$colorLightBg !important;
       color: t.$colorAccent !important;
     }
   }
