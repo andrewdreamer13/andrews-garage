@@ -1,17 +1,94 @@
 @use "../tools" as t;
 
 .nav {
-    width: 100%;
-    max-width: 300px;
-   
-    &__list {
+  width: max-content;
+
+  &-desktop {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &-left {
+    .nav__list {
+      width: 100%;
+      @include t.flex-mix(flex-start, center, row, 30px);
+      @include t.fluid-prop("gap", 10, 30, 768, 1200);
+      margin-top: -15px;
+    }
+  }
+
+  &-right {
+    .nav__list {
+      width: 100%;
+      @include t.flex-mix(flex-end, flex-start, row, 30px);
+      @include t.fluid-prop("gap", 10, 30, 768, 1200);
+      margin-top: -15px;
+    }
+  }
+
+  &-mobile {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+      visibility: hidden;
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      padding-top: 150px;
+      overflow: hidden;
+      transform: translateY(-100%);
+      background-color: t.$colorDarkBg;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform 0.5s ease,
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+
+      &.is-open {
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav__list {
         width: 100%;
-        @include t.flex-mix(space-between,center,row,10px);
+        @include t.flex-mix(center, center, column, 30px);
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-transform: capitalize;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left:0;
+      width: 100%;
+      height: 7px;
+      background-image: url("/src/assets/img/webp/underline.webp");
+      background-position: left center;
+      background-size: contain; 
+      background-repeat: no-repeat;
+      opacity: 0;
+      transform: translate(0,-5px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    &__item {
+    @media (hover:hover) {
+      &:hover::after {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
     }
-
-    &__link {
-    }
+  }
 }

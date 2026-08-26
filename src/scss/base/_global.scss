@@ -4,21 +4,42 @@
  
 }
 
+ * {
+  &:focus-visible {
+    outline-color: t.$colorWhite;
+    outline-offset: 2px;
+  }
+} 
+
+  html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: t.$colorDarkBg;
-  background-color: #fff;
   color: t.$colorWhite;
   font-weight: 400;
   font-size: 16px;
   font-family: t.$font-18pt;
+  line-height: 1.3;
+  //  text-wrap: balance;
 }
 
-svg {
-  fill: red;
-  stroke: 1px solid red;
+html:has(body.lock),
+body.lock {
+  overflow: hidden;
+  touch-action: none;
+}
 
-  use {
-    width: 100%;
-    height: 100%;
-  }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

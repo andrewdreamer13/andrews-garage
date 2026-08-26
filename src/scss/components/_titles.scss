@@ -1,5 +1,30 @@
 @use "../tools" as t;
 
+.main-title {
+  max-width: 750px;
+  margin-bottom: 40px;
+
+  &__text {
+    display: block;
+    color: t.$colorWhite;
+    font-size: 97px;
+    @include t.fluid-prop("font-size", 37, 95, 320, 900);
+    font-weight: 600;
+    line-height: 1.1;
+    font-family: t.$font-28pt;
+    text-transform: capitalize;
+  }
+
+  &__text--top {
+  }
+
+  &__text--bottom {
+    color: t.$colorAccent;
+  }
+}
+
+
+
 .title {
   text-align: center;
    @include t.fluid-prop("font-size",32, 100);

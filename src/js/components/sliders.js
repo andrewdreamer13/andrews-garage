@@ -1,26 +1,25 @@
-
-/**
- * Initializes Swiper slider instances with bundled CSS styles and custom control configurations (pagination, navigation buttons, and scrollbars).
- * 
- * 1. `initSliders` - Serves as the entry point wrapper to trigger slider setup routines across the application.
- * 2. `initMainSlider` - Instantiates a centered, looping Swiper carousel for `.main-slider` containers with interactive navigation, pagination, and scrollbar controls.
- */
-
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
 export const initSliders = () => {
-  initMainSlider();
+  autoBrandsSlider();
 };
 
-const initMainSlider = () => {
-  const swiper = new Swiper(".main-slider", {
+const autoBrandsSlider = () => {
+  const swiper = new Swiper(".auto-brands__slider", {
     loop: true,
-    speed: 500,
-    centeredSlides: true,
-    slidesPerView: 2,
-    spaceBetween: 20,
+    speed: 3000,
+    slidesPerView: "auto",
+    spaceBetween: 30,
+    centeredSlides: false,
 
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+
+    // Если пагинация, стрелки и скроллбар не нужны для ленты брендов, их можно удалить.
+    /*
     pagination: {
       el: ".swiper-pagination",
     },
@@ -33,5 +32,6 @@ const initMainSlider = () => {
     scrollbar: {
       el: ".swiper-scrollbar",
     },
+    */
   });
 };

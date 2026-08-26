@@ -1,33 +1,21 @@
 <!doctype html>
 <html lang="en">
- <load
-  src="/src/html/components/head.html"
-  title="Andrew's Garage | Professional Automotive Repair & Maintenance"
-  description="Expert automotive repair, engine diagnostics, routine maintenance, and custom service for your car at Andrew's Garage. Quality parts and professional care."
-  keywords="auto repair, car service, engine diagnostics, oil change, tire fitting, mechanic, Andrew's Garage"
-  site-url="https://andrews-garage.github.io/"
-  og-image="img/og-preview.jpg"
-  theme-color="#141414"
-/>
+  <load
+    src="/src/html/components/head.html"
+    title="Andrew's Garage | Professional Automotive Repair & Maintenance"
+    description="Expert automotive repair, engine diagnostics, routine maintenance, and custom service for your car at Andrew's Garage. Quality parts and professional care."
+    keywords="auto repair, car service, engine diagnostics, oil change, tire fitting, mechanic, Andrew's Garage"
+    site-url="https://andrews-garage.github.io/"
+    og-image="img/og-preview.jpg"
+    theme-color="#141414"
+  />
   <body>
-    <!-- the way to use vite-plugin-html-inject -->
-    <load src="/src/html/layout/header.html" />
+    <load src="/src/html/sections/header.html" />
     <load src="/src/html/sections/hero.html" />
-    <svg width="64" height="64">
-      <use href="#icons-services-brake-disc"></use>
-    </svg>
-    
-    <main>
-      <!-- ways to the images -->
-      <img
-        class="image"
-        src="src/assets/img/webp/beach.webp"
-        alt="beach"
-        loading="lazy"
-        width="550"
-        height="385"
-      />
 
+    <main>
+    <load src="/src/html/sections/auto-brands.html" />
+    </main>
       <load src="/src/html/components/accordion.html" />
       <load src="/src/html/components/main-slider.html" />
       <load src="/src/html/components/tabs.html" />
@@ -36,7 +24,6 @@
         src="/src/html/components/form.html"
         id="form1"
       />
-    </main>
     <!-- the way to use vite-plugin-html-inject -->
     <load src="/src/html/components/modal-content1.html" />
     <load src="/src/html/components/modal-content2.html" />
@@ -44,15 +31,16 @@
     <load src="/src/html/components/preloader.html" />
     <load src="/src/html/components/cookie-banner.html" />
 
-    <load src="/src/html/layout/footer.html" />
+    <load src="/src/html/sections//footer.html" />
 
-    <div class="card">
-      <h2 class="card__title">Card title</h2>
-      <p class="card__text">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam sequi
-        ipsa ex libero dicta fugit, similique molestiae officia omnis iste?
-      </p>
-    </div>
+    <img
+      class="image"
+      src="src/assets/img/webp/beach.webp"
+      alt="beach"
+      loading="lazy"
+      width="550"
+      height="385"
+    />
     <!-- html code for lazySvgLoader with templates -->
     <div
       class="icon-wrapper"

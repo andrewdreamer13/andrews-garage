@@ -1,0 +1,29 @@
+@use "../tools" as t;
+
+.auto-brands {
+  width: 100%;
+  background-color: t.$colorDarkBg;
+  padding: 15px 0;
+
+    &__slider {
+    }
+
+    &__wrapper {
+    }
+
+    &__slide {
+     width: auto !important;      
+    flex-shrink: 0;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    &__svg {
+      fill:t.$colorAccent;
+      @include t.fluid-prop("width", 60, 120, 320, 768);
+      @include t.fluid-prop("height", 30, 40, 320, 768);
+      max-width: none;
+      object-fit: contain;
+    }
+}

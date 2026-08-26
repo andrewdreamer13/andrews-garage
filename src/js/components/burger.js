@@ -1,19 +1,14 @@
 
-/**
- * Initializes the responsive mobile navigation burger menu, managing UI state classes, accessibility attributes, Escape key listeners, and focus trapping.
- * 
- * 1. `initBurger` - Sets up toggle events for the burger button and menu, manages body scroll locks and ARIA states, handles Escape key closing, traps focus within the active menu via `focusManager`, and auto-closes upon link navigation.
- */
+
 
 import { openScope, closeScope } from "../services/focusManager.js";
 
-export const initBurger = (btnSelector, menuSelector, listSelector) => {
+export const initBurger = (btnSelector, menuSelector) => {
   const burger = document.querySelector(btnSelector);
   const menu = document.querySelector(menuSelector);
 
   if (!burger || !menu) return;
 
-  const list = menu.querySelector(listSelector);
   const body = document.body;
   const isMenuOpen = () => menu.classList.contains("is-open");
 
@@ -63,7 +58,7 @@ export const initBurger = (btnSelector, menuSelector, listSelector) => {
       return;
     }
 
-    if (list && e.target === list) {
+    if (menu && e.target === menu) {
       closeMenu();
     }
   });

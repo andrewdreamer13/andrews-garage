@@ -1,28 +1,26 @@
 @use "../tools" as t;
 
-
 .burger {
   display: none;
   z-index: 1000;
   position: relative;
   width: 49px;
   height: 49px;
-  border-radius: 15px;
-  background-color: #cccccc;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 768px) {
     @include t.flex-mix(center, center, column, 5px);
   }
 
   .line {
     display: block;
     width: 25px;
-    height: 2px;
+    height: 3px;
     border-radius: 1px;
-    background-color: #166e94;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: t.$colorWhite;
+    transition:
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.3s ease;
   }
-
 
   &.is-active {
     .line-top {
@@ -38,12 +36,13 @@
     }
   }
 
-  &:hover .line {
-    background-color: #cc5ffd;
-  }
-  &:active .line {
-    background-color:  #fdc05f;
+  @media (hover: hover) {
+    &:hover .line {
+      background-color: t.$colorAccent;
+    }
   }
 
-  
+  &:active .line {
+    transform: scale(0.95);
+  }
 }

@@ -1,0 +1,32 @@
+@use "../tools" as t;
+
+.contacts {
+  &__list {
+    @include t.flex-mix(flex-start, flex-start, column, 10px);
+  }
+
+  &__item {
+    color: rgba(t.$colorWhite, 0.8);
+    line-height: 1;
+    @include t.flex-mix(flex-start, center, row, 12px);
+  }
+
+  &__svg {
+    width: 14px;
+    height: 14px;
+    fill: t.$colorAccent;
+    stroke: none;
+  }
+
+  &__address {
+  }
+
+  &__phone {
+  }
+
+  &__email {
+  }
+
+  &__hours {
+  }
+}

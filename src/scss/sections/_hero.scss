@@ -1,0 +1,73 @@
+@use "../tools" as t;
+
+.hero {
+  position: relative;
+  width: 100%;
+  @include t.fluid-prop("padding-top", 120, 200, 320, 1200);
+  @include t.fluid-prop("padding-bottom", 50, 100, 320, 1200);
+  background-image: url("/src/assets/img/webp/hero-bg.webp");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: t.$colorDarkBg;
+
+  @media (max-width: 900px) {
+    background-image: url("/src/assets/img/webp/hero-mob-bg.webp");
+  }
+
+  &::before {
+    z-index: 1;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    background: linear-gradient(
+      to bottom,
+      rgba(34, 34, 34, 1) 0%,
+      rgba(34, 34, 34, 0.95) 10%,
+      rgba(34, 34, 34, 0.5) 50%,
+      rgba(34, 34, 34, 0.95) 90%,
+      rgba(34, 34, 34, 1) 100%
+    );
+
+    content: "";
+    pointer-events: none;
+  }
+
+  &__inner {
+    z-index: 2;
+    position: relative;
+  }
+
+  &__info {
+    width: 100%;
+    @include t.flex-mix(space-between, flex-end, row, 30px);
+    margin-bottom: 50px;
+
+    @media (max-width: 900px) {
+      @include t.flex-mix(flex-start, flex-start, column, 40px);
+      margin-bottom: 80px;
+    }
+  }
+
+  &__contacts {
+    @media (max-width: 900px) {
+      order: 2;
+    }
+  }
+
+  &__description {
+    max-width: 450px;
+    color: rgba(t.$colorWhite, 0.8);
+    font-size: 18px;
+    @include t.fluid-prop("font-size", 16, 18, 320, 768);
+
+    @media (max-width: 768px) {
+      text-wrap: balance;
+    }
+  }
+
+  &__button {
+  }
+}

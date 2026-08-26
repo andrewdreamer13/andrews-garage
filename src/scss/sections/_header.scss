@@ -1,0 +1,19 @@
+@use "../tools" as t;
+
+.header {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  &__inner {
+    width: 100%;
+    @include t.flex-mix(space-around, center, row, 30px);
+    padding: 15px 0;
+
+    @media (max-width: 768px) {
+      @include t.flex-mix(space-between, center, row, 30px);
+    }
+  }
+}

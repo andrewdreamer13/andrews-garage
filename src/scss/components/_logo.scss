@@ -1,29 +1,46 @@
-
 @use "../tools" as t;
 
 .logo {
-  border:1px solid var(--theme-accent);
-  border-radius: .5em ;
-  padding: .3em 1em ;
-  font-size: 32px;
-  color:var(--theme-accent);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+  @include t.fluid-prop("width", 180, 230, 768, 1200);
+  height: auto;
+  padding-bottom: 15px;
 
-  &:hover {
-    background-color: var(--theme-accent);
-    color:rgba(var(--theme-bg));
-    
+  @media (max-width: 768px) {
+    @include t.fluid-prop("width", 160, 180, 320, 768);
   }
 
-  &:active {
-    transform: translateY(0); 
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    @include t.fluid-prop("height", 8, 11, 320, 1200);
+    transform: translateY(-8px);
+    transform-origin: left center;
+    background-image: url("/src/assets/img/webp/underline.webp");
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: "";
+    animation: drawUnderline 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s 1 forwards;
+    opacity: 0;
   }
 }
-
-@media (max-width: 768px) {
-.logo {
-  font-size: 22px;
-}
-
-  
+@keyframes drawUnderline {
+  0% {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
