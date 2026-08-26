@@ -7,7 +7,6 @@
   &__text {
     display: block;
     color: t.$colorWhite;
-    font-size: 97px;
     @include t.fluid-prop("font-size", 37, 95, 320, 900);
     font-weight: 600;
     line-height: 1.1;
@@ -23,11 +22,22 @@
   }
 }
 
-
-
 .title {
-  text-align: center;
-   @include t.fluid-prop("font-size",32, 100);
-   @include t.fluid-prop("margin-bottom",20, 60);
-   color: var(--theme-text);
+  &__text {
+    display: block;
+    color: t.$colorWhite;
+    @include t.fluid-prop("font-size", 32, 64, 320, 900);
+    font-weight: 600;
+    line-height: 1.1;
+    font-family: t.$font-24pt;
+    text-align: left;
+    text-transform: capitalize;
+  }
+
+  &__text--top {
+  }
+
+  &__text--bottom {
+    color: t.$colorAccent;
+  }
 }

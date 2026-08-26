@@ -1,14 +1,12 @@
-
-/**
- * Conditionally initializes and destroys Swiper instances based on CSS media query breakpoints.
- * 
- * 1. `createResizableSwiper` - Listens to a media query and manages the lifecycle (initialization and destruction) of a Swiper instance as screen sizes change.
- * 2. `initResizableSwiper` - Configures and triggers responsive Swiper sliders for specific target elements across defined breakpoints.
- */
-
 import Swiper from "swiper/bundle";
+import "swiper/css";
 
-const createResizableSwiper = (breakpointString,selector,settings,callback) => {
+const createResizableSwiper = (
+  breakpointString,
+  selector,
+  settings,
+  callback,
+) => {
   const mediaQuery = window.matchMedia(breakpointString);
   let swiperInstance;
 
@@ -33,12 +31,13 @@ const createResizableSwiper = (breakpointString,selector,settings,callback) => {
 };
 
 export const initResizableSwiper = () => {
-  createResizableSwiper("(max-width: 950px)", ".installation__card-slider", {
-    spaceBetween: 20,
+  createResizableSwiper("(max-width: 1240px)", ".services__cards-slider", {
+    spaceBetween: 18,
     slidesPerView: "auto",
     speed: 500,
-    grid: {
-      rows: 2,
+    scrollbar: {
+      el: ".swiper-scrollbar",
+      draggable: true,
     },
   });
 };
