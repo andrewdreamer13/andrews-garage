@@ -26,7 +26,7 @@
   &__text {
     display: block;
     color: t.$colorWhite;
-    @include t.fluid-prop("font-size", 32, 64, 320, 900);
+    @include t.fluid-prop("font-size", 30, 58, 320, 900);
     font-weight: 600;
     line-height: 1.1;
     font-family: t.$font-24pt;
