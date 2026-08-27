@@ -3,7 +3,7 @@
 .services {
   width: 100%;
   @include t.fluid-prop("padding-top", 50, 100, 320, 1200);
-  @include t.fluid-prop("padding-bottom", 50, 100, 320, 1200);
+  @include t.fluid-prop("padding-bottom", 40, 80, 320, 1200);
 
   &__header {
     width: 100%;
@@ -170,6 +170,6 @@
   &__button-box {
     width: 100%;
     @include t.flex-mix(center, center);
-    margin-top: 40px;
+    margin-top: 50px;
   }
 }

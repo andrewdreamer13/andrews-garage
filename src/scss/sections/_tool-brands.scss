@@ -1,0 +1,38 @@
+@use "../tools" as t;
+
+.tool-brands {
+  width: 100%;
+  padding: 15px 0;
+  background-color: t.$colorDarkBg;
+
+  &__slider {
+   
+  }
+
+  &__wrapper {
+     transition-timing-function: linear !important;
+    
+  }
+
+  &__slide {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: auto !important;
+    height: 50px;
+    padding: 7px 14px;
+    // border: 1px solid t.$colorWhite;
+    // border-radius: 6px;
+  }
+
+  &__text {
+    color: t.$colorAccent;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 1.2;
+    @include t.fluid-prop("font-size", 24, 35, 320, 768);
+    font-family: t.$font-24pt;
+    
+  }
+}
