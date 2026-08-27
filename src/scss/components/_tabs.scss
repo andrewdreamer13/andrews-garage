@@ -2,31 +2,46 @@
 
 .tabs {
   width: 100%;
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 10px;
-  border: 1px solid;
 
   &__buttons {
     width: 100%;
-    margin-bottom: 20px;
-
-    @include t.flex-mix(center, center, row, 20px);
+    @include t.flex-mix(center, center);
+    @include t.fluid-prop("gap", 10, 30, 320, 950);
+    padding: 3px 0;
+    background-color: t.$colorLightBg;
   }
 
   &__button {
     padding: 6px 20px;
-    border: 1px solid;
-    border-radius: 5px;
+    @include t.fluid-prop("padding-top", 3, 6, 320, 950);
+    @include t.fluid-prop("padding-bottom", 3, 6, 320, 950);
+    @include t.fluid-prop("padding-left", 5, 20, 320, 950);
+    @include t.fluid-prop("padding-right", 5, 20, 320, 950);
+    @include t.fluid-prop("font-size", 13, 22, 320, 950);
+
+    border-radius: 3px;
+    background-color: t.$colorLightBg;
+    color: t.$colorAccent;
+    font-weight: 500;
     cursor: pointer;
     transition:
       background-color 0.3s,
       color 0.3s;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(t.$colorAccent, 0.4);
+        color:t.$colorLightBg;
+      }
+    }
+    &:active {
+      transform: scale(0.95);
+    }
   }
 
   &__button--active {
-    color: #000;
-    background-color: #fff;
+    background-color: t.$colorAccent;
+    color: t.$colorLightBg;
   }
 
   &__content {
@@ -36,20 +51,21 @@
   }
 
   &__panel {
-  grid-area: 1 / 1;
+    visibility: hidden;
+    grid-area: 1 / 1;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+  }
 
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition:
-    opacity .3s,
-    visibility .3s;
-}
-
-&__panel--active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
+  &__panel--active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
 }

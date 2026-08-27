@@ -4,6 +4,7 @@ import "swiper/css/bundle";
 export const initSliders = () => {
   autoBrandsSlider();
   toolBrandsSlider();
+  gallerySliders();
 };
 
 const autoBrandsSlider = () => {
@@ -48,5 +49,23 @@ const toolBrandsSlider = () => {
       disableOnInteraction: false,
       reverseDirection: true,
     },
+  });
+};
+
+const gallerySliders = () => {
+  const sliders = document.querySelectorAll(".gallery__slider");
+
+  sliders.forEach((sliderEl) => {
+    new Swiper(sliderEl, {
+      speed:600,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      observer: true,
+      observeParents: true,
+      navigation: {
+        nextEl: ".gallery__button-next",
+        prevEl: ".gallery__button-prev",
+      },
+    });
   });
 };

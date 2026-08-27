@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAppearance();
   initAccordion("#faq");
   initFocusManager();
-  initTabs("#tabs-1");
+  initTabs(".tabs");
   initCookieBanner();
   initCustomSelect("#cities", optionsData.cities);
   initCustomSelect("#countries", optionsData.countries);
