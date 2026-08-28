@@ -19,6 +19,14 @@
     overflow: hidden;
   }
 
+  &__slider {
+     padding-top: 70px !important;
+
+    @media (max-width: 768px) {
+      padding-top: 0 !important;
+    }
+  }
+
   &__wrapper {
     display: flex;
   }
@@ -36,6 +44,15 @@
     height: 100%;
     object-fit: cover;
   }
+   &__arrows {
+    position: absolute;
+    top: 7px;
+    right: 15px;
+    width: 120px;
+    height: 50px;
+    @include t.flex-mix(space-between, center);
+    z-index: 10;
+  }
 
   &__button-next,
   &__button-prev {
@@ -51,7 +68,6 @@
 
     @media (hover: hover) {
       &:hover {
-        transform: scale(1.05);
         background-color: rgba(t.$colorWhite, 0.8);
       }
     }
@@ -59,14 +75,16 @@
       transform: scale(0.95);
     }
 
-    @media (max-width:768px) {
+    @media (max-width: 768px) {
       display: none !important;
     }
   }
-  &__button-next {
-    right: 20px !important;
-  }
-  &__button-prev {
-    left: 20px !important;
+ 
+
+  .swiper-pagination-fraction {
+    color: t.$colorAccent;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: t.$font-18pt;
   }
 }

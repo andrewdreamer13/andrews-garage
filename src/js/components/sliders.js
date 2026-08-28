@@ -5,6 +5,7 @@ export const initSliders = () => {
   autoBrandsSlider();
   toolBrandsSlider();
   gallerySliders();
+  testimonialSlider();
 };
 
 const autoBrandsSlider = () => {
@@ -57,7 +58,7 @@ const gallerySliders = () => {
 
   sliders.forEach((sliderEl) => {
     new Swiper(sliderEl, {
-      speed:600,
+      speed: 600,
       slidesPerView: 1,
       spaceBetween: 10,
       observer: true,
@@ -66,6 +67,62 @@ const gallerySliders = () => {
         nextEl: ".gallery__button-next",
         prevEl: ".gallery__button-prev",
       },
+      pagination: {
+        el: sliderEl.querySelector(".gallery__pagination"),
+        type: "fraction",
+      },
     });
   });
 };
+
+const testimonialSlider = () => {
+  const container = document.querySelector(".testimonials__slider");
+  if (!container) return;
+
+  const currentEl = document.querySelector(".testimonials__pagination-current");
+  const totalEl = document.querySelector(".testimonials__pagination-total");
+
+  const swiper = new Swiper(container, {
+    speed: 600,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3, 
+      },
+    },
+    navigation: {
+      nextEl: ".testimonials__button-next",
+      prevEl: ".testimonials__button-prev",
+    },
+    on: {
+      init: (swiper) => updateRangeFraction(swiper, currentEl, totalEl),
+      slideChange: (swiper) => updateRangeFraction(swiper, currentEl, totalEl),
+      resize: (swiper) => updateRangeFraction(swiper, currentEl, totalEl),
+    },
+  });
+};
+
+function updateRangeFraction(swiper, currentEl, totalEl) {
+  if (!currentEl || !totalEl) return;
+
+  const currentIndex = swiper.realIndex + 1;
+  const totalSlides = swiper.slides.length;
+
+  const visibleCount =
+    typeof swiper.slidesPerViewDynamic === "function"
+      ? Math.floor(swiper.slidesPerViewDynamic())
+      : 1;
+
+  const endRange = Math.min(currentIndex + visibleCount - 1, totalSlides);
+  if (visibleCount === 1) {
+    currentEl.textContent = currentIndex;
+  } else {
+    currentEl.textContent = `${currentIndex}-${endRange}`;
+  }
+
+  totalEl.textContent = totalSlides;
+}

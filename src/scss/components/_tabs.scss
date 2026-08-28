@@ -5,10 +5,19 @@
 
   &__buttons {
     width: 100%;
-    @include t.flex-mix(center, center);
+    @include t.fluid-prop("max-width", 560, 700, 768, 1000);
+    @include t.flex-mix(flex-start, center);
     @include t.fluid-prop("gap", 10, 30, 320, 950);
-    padding: 3px 0;
-    background-color: t.$colorLightBg;
+    z-index: 10;
+    position: relative;
+    margin-bottom: -60px;
+    padding: 10px 0 10px 0;
+
+    @media (max-width: 768px) {
+      @include t.flex-mix(center, center);
+      max-width: 100%;
+      margin-bottom: 0;
+    }
   }
 
   &__button {
@@ -20,7 +29,6 @@
     @include t.fluid-prop("font-size", 13, 22, 320, 950);
 
     border-radius: 3px;
-    background-color: t.$colorLightBg;
     color: t.$colorAccent;
     font-weight: 500;
     cursor: pointer;
@@ -31,7 +39,7 @@
     @media (hover: hover) {
       &:hover {
         background-color: rgba(t.$colorAccent, 0.4);
-        color:t.$colorLightBg;
+        color: t.$colorLightBg;
       }
     }
     &:active {
