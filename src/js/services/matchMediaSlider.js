@@ -30,7 +30,7 @@ const createResizableSwiper = (
   checker();
 };
 
-export const initResizableSwiper = () => {
+export const initResizableServicesSwiper = () => {
   createResizableSwiper("(max-width: 1240px)", ".services__cards-slider", {
     spaceBetween: 18,
     slidesPerView: "auto",
@@ -38,6 +38,18 @@ export const initResizableSwiper = () => {
     scrollbar: {
       el: ".swiper-scrollbar",
       draggable: true,
+    },
+  });
+};
+export const initResizableWorkflowSwiper = () => {
+  createResizableSwiper("(max-width: 1230px)", ".workflow__slider", {
+    spaceBetween: 10,
+    slidesPerView: "auto",
+    speed: 4000,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
     },
   });
 };

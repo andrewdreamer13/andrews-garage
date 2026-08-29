@@ -30,6 +30,13 @@ export const initTabs = (tabsSelector) => {
 
       targetPanel.classList.add("tabs__panel--active");
       targetPanel.setAttribute("aria-hidden", "false");
+
+      targetPanel.dispatchEvent(
+        new CustomEvent("tab-switched", {
+          bubbles: true, 
+          detail: { button, panel: targetPanel },
+        }),
+      );
     });
   });
 };

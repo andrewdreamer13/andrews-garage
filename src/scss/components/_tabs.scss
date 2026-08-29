@@ -59,7 +59,7 @@
   }
 
   &__panel {
-    visibility: hidden;
+    // visibility: hidden;
     grid-area: 1 / 1;
     width: 100%;
     min-width: 0;
@@ -67,12 +67,12 @@
     opacity: 0;
     pointer-events: none;
     transition:
-      opacity 0.3s,
+      opacity 0.5s,
       visibility 0.3s;
   }
 
   &__panel--active {
-    visibility: visible;
+    // visibility: visible;
     opacity: 1;
     pointer-events: auto;
   }

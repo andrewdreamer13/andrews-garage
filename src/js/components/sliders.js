@@ -57,20 +57,47 @@ const gallerySliders = () => {
   const sliders = document.querySelectorAll(".gallery__slider");
 
   sliders.forEach((sliderEl) => {
-    new Swiper(sliderEl, {
-      speed: 600,
-      slidesPerView: 1,
-      spaceBetween: 10,
-      observer: true,
-      observeParents: true,
-      navigation: {
-        nextEl: ".gallery__button-next",
-        prevEl: ".gallery__button-prev",
-      },
-      pagination: {
-        el: sliderEl.querySelector(".gallery__pagination"),
-        type: "fraction",
-      },
+    let swiperInstance = null;
+
+    const panel = sliderEl.closest(".tabs__panel");
+    if (!panel) return;
+
+    const initSwiper = () => {
+      if (swiperInstance) return;
+
+      const isDesktop = window.innerWidth >= 768;
+
+      swiperInstance = new Swiper(sliderEl, {
+        speed: 600,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true,
+       
+        effect: isDesktop ? "fade" : "slide",
+        fadeEffect: {
+          crossFade: true,
+        },
+        navigation: {
+          nextEl: ".gallery__button-next",
+          prevEl: ".gallery__button-prev",
+        },
+        pagination: {
+          el: sliderEl.querySelector(".gallery__pagination"),
+          type: "fraction",
+        },
+      });
+    };
+
+    if (panel.classList.contains("tabs__panel--active")) {
+      initSwiper();
+    }
+
+    panel.addEventListener("tab-switched", () => {
+      initSwiper();
+      if (swiperInstance) {
+        swiperInstance.update();
+      }
     });
   });
 };
@@ -91,7 +118,7 @@ const testimonialSlider = () => {
         slidesPerView: 2,
       },
       1024: {
-        slidesPerView: 3, 
+        slidesPerView: 3,
       },
     },
     navigation: {

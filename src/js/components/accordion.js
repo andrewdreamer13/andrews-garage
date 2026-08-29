@@ -1,9 +1,4 @@
 
-/**
- * Initializes accordion components with accessible ARIA states and dynamic maximum height collapse/expand animations.
- * 
- * 1. `initAccordion` - Sets up click event delegation to toggle accordion items, collapsing inactive panels and expanding the selected content container.
- */
 
 export const initAccordion = (accordionId) => {
   const accordion = document.querySelector(accordionId);

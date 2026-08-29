@@ -1,0 +1,84 @@
+@use "../tools" as t;
+
+.workflow {
+  width: 100%;
+  @include t.fluid-prop("padding-top", 50, 80, 320, 1200);
+  @include t.fluid-prop("padding-bottom", 40, 80, 320, 1200);
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    margin-bottom: 30px;
+    @include t.fluid-prop("font-size", 16, 22, 320, 768);
+    max-width: 800px;
+    color: rgba(t.$colorWhite, 0.6);
+  }
+
+  &__inner {
+    width: 100%;
+    @include t.flex-mix(space-between, flex-start, row, 20px);
+
+    @media (max-width: 1230px) {
+      @include t.flex-mix(flex-start, center, column, 30px);
+    }
+  }
+
+  &__images {
+    display: grid !important;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 600px;
+    gap: 10px;
+
+    @media (max-width: 1230px) {
+      max-width: 1200px;
+      display: flex !important;
+      @include t.flex-mix(flex-start, center, row, 0);
+    }
+  }
+
+  &__slider {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    position: relative;
+    width: 294px;
+
+    &::before {
+      z-index: 1;
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      bottom: -5px;
+      left: -5px;
+      background-color: rgba(t.$colorDarkBg, 0.3);
+      content: "";
+      pointer-events: none;
+    }
+  }
+
+  .swiper-slide-mob {
+    display: none;
+
+     @media (max-width: 1230px) {
+      display: block;
+     }
+  }
+
+  &__img {
+    object-fit: cover;
+    background-color: t.$colorDarkBg;
+
+    @media (max-width: 1230px) {
+      width: 294px;
+    }
+  }
+
+ 
+}
+
