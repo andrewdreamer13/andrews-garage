@@ -1,6 +1,4 @@
 
-
-
 import "../scss/main.scss";
 import "virtual:svg-icons-register";
 
@@ -37,7 +35,7 @@ import { initDatePicker } from "./components/dataPicker.js";
 import { initCurrentYear } from "./helpers/currentYear.js";
 import { initSyncDataAttrWithText } from "./helpers/syncDataAttrWithText.js";
 import { initLongTextWatcher } from "./helpers/longTextWatcher.js";
-import {initTextareaResize} from "./helpers/textareaAutoResize.js"
+import {initTextareaResize} from "./helpers/textareaAutoResize.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("The project works");
@@ -46,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initSliders();
   initChangeTheme("#theme");
   initModal();
-  initAppearance();
   initAccordion("#workflow-accordion");
   initFocusManager();
   initTabs(".tabs");

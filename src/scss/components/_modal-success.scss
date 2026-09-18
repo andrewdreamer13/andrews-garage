@@ -1,14 +1,75 @@
-
+@use "../tools" as t;
 .success-modal {
+   position: relative;
+  @include t.fluid-prop("width", 290, 636, 320, 768);
+  padding: 30px 15px 50px 15px;
+  border-radius: 6px;
+  background-color: t.$colorLightBg;
 
-    &__icon {
+  span {
+    color: t.$colorAccent;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    // background-color: t.$colorAccent;
+    // isolation: isolate;
+    color: t.$colorWhite;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+
+    // &::before {
+    //   z-index: -1;
+    //   position: absolute;
+    //   inset: 0;
+    //   transform: scaleX(0);
+    //   transform-origin: center;
+    //   border-radius: 6px;
+    //   background-color: t.$colorSuccess;
+    //   content: "";
+    //   transition: transform 0.3s ease;
+    // }
+    @media (hover: hover) {
+      &:hover {
+        // transform: scale(1.1);
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+    &__svg {
+      width: 84px;
+      height: 84px;
+      fill: t.$colorAccent;
+        margin: 0 auto 30px auto;
+        display: block;
     }
 
     &__title {
-      font-size: 35px;
+     color: t.$colorWhite;
+    font-size: 35px;
+    @include t.fluid-prop("font-size", 28, 35, 320, 576);
+    margin-bottom: 20px;
+    line-height: 1;
+    font-family: t.$font-24pt;
+    text-align: center;
     }
 
     &__text {
-      font-size: 25px;
+       max-width: 400px;
+    margin: 0 auto;
+    color: t.$colorWhite;
+    font-size: 18px;
+    font-family: t.$font-18pt;
+    text-align: left;
     }
 }

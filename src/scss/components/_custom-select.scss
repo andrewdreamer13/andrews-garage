@@ -34,7 +34,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid #fff;
+      outline: 2px solid t.$colorWhite;
       outline-offset: 2px;
     }
 

@@ -55,8 +55,7 @@
       position: static;
       max-width: 510px;
       margin: 0 auto;
-    @include t.fluid-prop("font-size", 16, 22, 320, 768);
-
+      @include t.fluid-prop("font-size", 16, 22, 320, 768);
     }
   }
 }

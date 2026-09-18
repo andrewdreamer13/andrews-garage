@@ -8,7 +8,7 @@
   inset: 0;
   padding: 40px 15px;
   overflow-y: auto;
-  background: t.$colorModalBg;
+  background: rgba(t.$colorWhite, 0.6);
   opacity: 0;
   pointer-events: none;
   transition:
