@@ -1,3 +1,82 @@
+@use "../tools" as t;
+
 .footer {
-  background-color: #fff;
+  width: 100%;
+  @include t.fluid-prop("padding-bottom", 30, 60, 320, 1200);
+
+  &__contacts {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+      @include t.flex-mix(center, flex-start, row, 10px);
+      @include t.fluid-prop("padding", 10, 18, 320, 768);
+      max-width: 510px;
+      margin: 0 auto 40px auto;
+      border-radius: 12px;
+      background-color: t.$colorLightBg;
+    }
+
+    @media (max-width: 360px) {
+      padding: 0;
+      border-radius: 0;
+      background-color: transparent;
+    }
+
+    .contacts__list {
+      @media (max-width: 768px) {
+      }
+    }
+  }
+
+  &__copyright {
+    margin-bottom: 10px;
+    color: rgba(t.$colorWhite, 0.6);
+    text-align: center;
+    @include t.fluid-prop("font-size", 14, 16, 320, 768);
+  }
+
+  &__credits {
+    color: rgba(t.$colorWhite, 0.6);
+    text-align: center;
+    @include t.fluid-prop("font-size", 14, 16, 320, 768);
+  }
+
+  &__author {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+
+    &::before {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      max-width: 0;
+      height: 100%;
+      overflow: hidden;
+      content: attr(data-text);
+      color: t.$colorAccent;
+      white-space: nowrap;
+      transition: max-width 0.3s ease;
+    }
+    @media (hover: hover) {
+      &:hover::before {
+        max-width: 100%;
+      }
+
+      &:hover {
+        color: rgba(t.$colorWhite, 0);
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
 }

@@ -3,20 +3,31 @@
 .booking {
   width: 100%;
   @include t.fluid-prop("padding-top", 50, 80, 320, 1200);
-  @include t.fluid-prop("padding-bottom", 40, 80, 320, 1200);
+  @include t.fluid-prop("padding-bottom", 30, 60, 320, 1200);
 
   &__title {
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    margin-bottom: 160px;
+    margin-bottom: 40px;
     @include t.fluid-prop("font-size", 16, 22, 320, 768);
     max-width: 800px;
     color: rgba(t.$colorWhite, 0.6);
 
     @media (max-width: 768px) {
       margin-bottom: 30px;
+    }
+  }
+
+  .contacts {
+    margin-bottom: 30px;
+
+    &__item {
+      @include t.fluid-prop("font-size", 14, 16, 768, 950);
+    }
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 
@@ -38,6 +49,10 @@
       order: 2;
     }
 
+    @media (max-width: 360px) {
+      min-height: 430px;
+    }
+
     .mapboxgl-map,
     .mapboxgl-canvas-container {
       width: 100% !important;
@@ -47,7 +62,7 @@
 
   &__form {
     position: absolute;
-    top: -25%;
+    top: -28%;
     right: 7%;
     @include t.fluid-prop("max-width", 350, 450, 768, 1200);
 
