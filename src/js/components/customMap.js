@@ -1,11 +1,7 @@
 
-/**
- * Initializes an interactive Mapbox GL JS map instance using target container dataset attributes, custom styling, navigation controls, and a location marker.
- * 
- * 1. `initCustomMap` - Configures Mapbox access using Vite environment variables, instantiates the map with custom styles and controls at target coordinates, attaches a pin marker, and updates the loaded state.
- */
-// starter
 //import mapboxgl from "mapbox-gl";
+
+
  
 export const initCustomMap = async (container) => {
   const { mapLat, mapLng } = container.dataset;
@@ -19,9 +15,15 @@ export const initCustomMap = async (container) => {
     container: container,
     style: "mapbox://styles/andrew-dreamer/cmsohob9k00sh01sabxf33rpc",
     center: [parseFloat(mapLng), parseFloat(mapLat)],
-    zoom: 12,
+    zoom: 10,
     cooperativeGestures: true,
   });
+
+  if (window.innerWidth < 768) {
+    map.setPadding({ right: 0 });
+  } else {
+    map.setPadding({ right: 450 });
+  }
 
   map.addControl(new mapboxgl.FullscreenControl());
   map.addControl(new mapboxgl.NavigationControl());
@@ -32,11 +34,20 @@ export const initCustomMap = async (container) => {
     }),
   );
 
-  new mapboxgl.Marker({
-    color: "#E5A51A",
-  })
+  const el = document.createElement("div");
+  el.className = "custom-marker";
+  el.style.backgroundImage = 'url("/src/assets/icons/contacts/map-pin-2.svg")';
+  el.style.width = "40px";
+  el.style.height = "40px";
+  el.style.backgroundSize = "cover";
+  el.style.cursor = "pointer";
+
+  new mapboxgl.Marker(el)
     .setLngLat([parseFloat(mapLng), parseFloat(mapLat)])
     .addTo(map);
 
   container.classList.add("_is-loaded");
+  setTimeout(() => {
+    map.resize();
+  }, 100);
 };

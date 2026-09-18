@@ -4,30 +4,52 @@
   action="https://api.web3forms.com/submit"
   method="POST"
   novalidate
-  data-contry="ua"
+  data-country="us"
   data-modal-success="modal-success"
 >
-  <input type="hidden" name="access_key" value="0d0b7a66-56f9-4ab4-a8f9-a92b96d45986">
-  <input type="checkbox" name="botcheck" hidden>
+  <input
+    type="hidden"
+    name="access_key"
+    value="0d0b7a66-56f9-4ab4-a8f9-a92b96d45986"
+  />
+  <input
+    type="checkbox"
+    name="botcheck"
+    hidden
+  />
+  <input
+    type="hidden"
+    name="subject"
+    value="New Appointment Request — Andrew's Garage"
+  />
+
+  <input
+    type="hidden"
+    name="from_name"
+    value="Andrew's Garage Website"
+  />
+
+  <input
+    type="hidden"
+    name="Form Name"
+    value="Appointment Form"
+  />
 
   <div class="form__input-box">
-    <label
-      class="form__label"
-      for="name"
-    >
-      Full name
-    </label>
-
     <input
       class="form__input"
       id="name"
       type="text"
       name="name"
-      placeholder="Enter your name"
+      placeholder="Name"
       autocomplete="name"
       required
       aria-describedby="name-error"
     />
+
+    <svg class="form__svg">
+      <use href="#icons-contacts-user"></use>
+    </svg>
 
     <span
       class="form__error"
@@ -36,23 +58,20 @@
   </div>
 
   <div class="form__input-box">
-    <label
-      class="form__label"
-      for="phone"
-    >
-      Phone
-    </label>
-
     <input
       class="form__input"
       id="phone"
       type="tel"
       name="phone"
-      placeholder="Enter your phone"
+      placeholder="Phone"
       autocomplete="tel"
       required
       aria-describedby="phone-error"
     />
+
+    <svg class="form__svg">
+      <use href="#icons-contacts-call"></use>
+    </svg>
 
     <span
       class="form__error"
@@ -61,23 +80,20 @@
   </div>
 
   <div class="form__input-box">
-    <label
-      class="form__label"
-      for="email"
-    >
-      Email
-    </label>
-
     <input
       class="form__input"
       id="email"
       type="email"
       name="email"
-      placeholder="Enter your email"
+      placeholder="Email"
       autocomplete="email"
       required
       aria-describedby="email-error"
     />
+
+    <svg class="form__svg">
+      <use href="#icons-contacts-email"></use>
+    </svg>
 
     <span
       class="form__error"
@@ -85,17 +101,7 @@
     ></span>
   </div>
 
-  <load id="cities" name="cities" src="/src/html/components/custom-select.html" />
-  <load id="countries" name="countries" src="/src/html/components/custom-select.html" />
-
-   <div class="form__input-box">
-    <label
-      class="form__label"
-      for="appointment-date"
-    >
-      Appointment Date
-    </label>
-
+  <div class="form__input-box">
     <input
       class="form__input"
       id="appointment-date"
@@ -105,8 +111,8 @@
       required
       aria-describedby="date-error"
     />
-    <svg class="form__date-icon">
-      <use href="#icons-calendar"></use>
+    <svg class="form__svg">
+      <use href="#icons-contacts-calendar"></use>
     </svg>
 
     <span
@@ -115,24 +121,57 @@
     ></span>
   </div>
 
-
   <div class="form__input-box">
-    <label
-      class="form__label"
-      for="message"
+    <div
+      class="select"
+      id="services"
     >
-      Message
-    </label>
+      <button
+        class="select__button"
+        id="select-button"
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        aria-describedby="services-error"
+      >
+        <span class="select__text"> Select Service </span>
 
+        <svg class="select__svg">
+          <use href="#icons-commons-arrow-down"></use>
+        </svg>
+      </button>
+
+      <ul
+        class="select__options"
+        role="listbox"
+      ></ul>
+
+      <input
+        class="select__input"
+        type="hidden"
+        name="services"
+        value=""
+        required
+      />
+    </div>
+    <span
+      class="form__error"
+      id="services-error"
+    ></span>
+  </div>
+
+  <div class="form__input-box form__input-box--textarea">
     <textarea
       class="form__textarea"
       id="message"
       name="message"
-      rows="4"
-      placeholder="Write your message"
+      rows="1"
+      placeholder="Describe your problem"
       aria-describedby="message-error"
     ></textarea>
-
+    <svg class="form__svg">
+      <use href="#icons-contacts-edit"></use>
+    </svg>
     <span
       class="form__error"
       id="message-error"
@@ -143,6 +182,6 @@
     class="form__submit button"
     type="submit"
   >
-    Send message
+    <span class="button__text">Book Now</span>
   </button>
 </form>

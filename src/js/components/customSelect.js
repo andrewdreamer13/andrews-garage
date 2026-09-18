@@ -1,10 +1,4 @@
-/**
- * Initializes accessible custom select components with support for dynamic option rendering, single-open instance management, and full mouse and keyboard navigation.
- *
- * 1. `initCustomSelect` - Dynamically populates options, creates internal state handlers, and initializes event bindings for custom select dropdown elements.
- * 2. `initMouseEvents` - Attaches click listeners for toggling dropdown state, selecting options, and closing the menu when clicking outside.
- * 3. `initKeyboardEvents` - Configures keyboard navigation (Arrow keys, Enter, Space, Escape, Tab) for accessible option selection and focus management.
- */
+
 
 let currentlyOpenSelect = null;
 
@@ -16,6 +10,7 @@ export function initCustomSelect(target, optionsData = null) {
     if (!selectWrapper) return;
 
     const button = selectWrapper.querySelector(".select__button");
+    const buttonText = selectWrapper.querySelector(".select__text");
     const menu = selectWrapper.querySelector(".select__options");
     const input = selectWrapper.querySelector(".select__input");
 
@@ -73,7 +68,7 @@ export function initCustomSelect(target, optionsData = null) {
       selectOption(option) {
         if (!option) return;
 
-        button.textContent = option.textContent.trim();
+        buttonText.textContent = option.textContent.trim();
         button.classList.add("is-selected");
 
         if (input) {

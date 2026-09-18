@@ -1,12 +1,4 @@
 
-/**
- * Handles form initialization, dynamic multi-country phone input masking, real-time input validation, and asynchronous form submission.
- * 
- * 1. `initFormHandler` - Attaches validation, phone mask formatting, and submit event handlers to target form elements.
- * 2. `initPhoneMask` - Applies automatic phone masking and country code formatting to telephone inputs based on user input and country patterns.
- * 3. `validateField` - Performs validation on required fields, names, email addresses, and phone numbers, updating error UI states accordingly.
- * 4. `handleFormSubmit` - Asynchronously sends form data via Fetch API, toggles UI loading states, resets fields upon success, and triggers a confirmation modal.
- */
 
 import { phoneMasks } from "../data/phoneMasks.js";
 import { openModal } from "../components/modalManager.js";
@@ -17,6 +9,7 @@ const errorMessages = {
   invalidName: "Only letters and spaces allowed",
   invalidEmail: "Please enter a valid email address",
   invalidPhone: "Invalid phone number for selected country",
+  success: "Looks good!",
 };
 
 export function initFormHandler(formSelector) {
@@ -36,9 +29,9 @@ export function initFormHandler(formSelector) {
   const forms = document.querySelectorAll(selector);
 
   if (forms.length === 0) {
-    console.warn(
-      `[FormHandler Error]: Форма по селектору "${formSelector}" не найдена! Проверь ID в HTML и вызов в main.js.`,
-    );
+   console.warn(
+     `[FormHandler Error]: Form with selector "${formSelector}" not found! Check the HTML ID and the call in main.js.`,
+   );
     return;
   }
 
@@ -47,19 +40,21 @@ export function initFormHandler(formSelector) {
 
     initPhoneMask(form);
 
-    inputs.forEach((input) => {
-      input.addEventListener("blur", () => validateField(input));
+   inputs.forEach((input) => {
+     input.addEventListener("blur", () => validateField(input));
 
-      input.addEventListener("input", () => {
-        const parent = input.closest(".form__input-box");
-        if (
-          input.type === "hidden" ||
-          (parent && parent.classList.contains("_is-invalid"))
-        ) {
-          validateField(input);
-        }
-      });
-    });
+     ["input", "change"].forEach((eventType) => {
+       input.addEventListener(eventType, () => {
+         const parent = input.closest(".form__input-box");
+         if (
+           input.type === "hidden" ||
+           (parent && parent.classList.contains("_is-invalid"))
+         ) {
+           validateField(input);
+         }
+       });
+     });
+   });
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -226,9 +221,10 @@ function validateField(input) {
     parent.classList.add("_is-invalid");
     parent.classList.remove("_is-valid");
   } else {
-    if (errorSpan) errorSpan.textContent = "";
+    if (errorSpan) errorSpan.textContent = errorMessages.success;
     parent.classList.remove("_is-invalid");
-    if (value !== "") {
+
+    if (value.length > 0) {
       parent.classList.add("_is-valid");
     } else {
       parent.classList.remove("_is-valid");
@@ -242,14 +238,17 @@ async function handleFormSubmit(form) {
   const submitBtn =
     form.querySelector(".form__submit") ||
     form.querySelector('button[type="submit"]');
-  const originalText = submitBtn ? submitBtn.textContent : "Send message";
 
-  
-  if (submitBtn) {
-    submitBtn.textContent = "Sending...";
+  const btnTextEl = submitBtn
+    ? submitBtn.querySelector("span") || submitBtn
+    : null;
+  const originalText = btnTextEl ? btnTextEl.textContent : "Submit";
+
+  if (submitBtn && btnTextEl) {
+    btnTextEl.textContent = "Sending...";
     submitBtn.disabled = true;
   }
-
+  
   const formData = new FormData(form);
 
   try {

@@ -15,6 +15,31 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px; 
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: t.$colorAccent;
+  border-radius: 4px;
+
+ &:hover,
+  &:active {
+    background-color: t.$colorAccent;
+  }
+}
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: t.$colorAccent transparent;
+}
+
   html {
   overflow-x: hidden;
 }

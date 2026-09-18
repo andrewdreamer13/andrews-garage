@@ -37,6 +37,7 @@ import { initDatePicker } from "./components/dataPicker.js";
 import { initCurrentYear } from "./helpers/currentYear.js";
 import { initSyncDataAttrWithText } from "./helpers/syncDataAttrWithText.js";
 import { initLongTextWatcher } from "./helpers/longTextWatcher.js";
+import {initTextareaResize} from "./helpers/textareaAutoResize.js"
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("The project works");
@@ -50,9 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initFocusManager();
   initTabs(".tabs");
   initCookieBanner();
-  initCustomSelect("#cities", optionsData.cities);
-  initCustomSelect("#countries", optionsData.countries);
-  initFormHandler("#form1");
+  initCustomSelect("#services", optionsData.services);
+  initFormHandler("#booking-form");
   initResizableServicesSwiper();
   initResizableWorkflowSwiper();
   initMaps();
@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initSyncDataAttrWithText(".footer__author", "text");
     initLongTextWatcher(".main-title__word");
      initCurrentYear();
+     initTextareaResize();
   // initUpButton(".footer__up-button");
 
 
