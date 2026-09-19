@@ -2,6 +2,8 @@ export function initDatePicker() {
   const dateInput = document.getElementById("appointment-date");
   if (!dateInput) return;
 
+  let fpInstance = null;
+
   const handleFirstInteraction = async () => {
     const [{ default: flatpickr }, { default: confirmDatePlugin }] =
       await Promise.all([
@@ -9,10 +11,7 @@ export function initDatePicker() {
         import("flatpickr/dist/plugins/confirmDate/confirmDate"),
       ]);
 
-    const maxSelectableDate = new Date();
-    maxSelectableDate.setDate(maxSelectableDate.getDate() + 30);
-
-    const fpInstance = flatpickr(dateInput, {
+    fpInstance = flatpickr(dateInput, {
       enableTime: true,
       dateFormat: "m/d/Y h:i K",
       minDate: "today",
@@ -20,6 +19,7 @@ export function initDatePicker() {
       monthSelectorType: "static",
       minuteIncrement: 30,
       disableMobile: true,
+      clickOpens: false,
 
       plugins: [
         new confirmDatePlugin({
@@ -28,21 +28,21 @@ export function initDatePicker() {
           theme: "dark",
         }),
       ],
-
-      onClose: (selectedDates, dateStr, instance) => {
-        const form = instance.element.form;
-        const nextElement = form ? form.querySelector("textarea") : null;
-
-        if (nextElement) {
-          setTimeout(() => {
-            nextElement.focus();
-          }, 10);
-        }
-      },
     });
-
-    fpInstance.open();
   };
+
+ 
+  dateInput.addEventListener("click", () => {
+    if (fpInstance) fpInstance.open();
+  });
+
+  dateInput.addEventListener("keydown", (e) => {
+    if ((e.key === "Enter" || e.key === " ") && fpInstance) {
+      e.preventDefault();
+      fpInstance.open();
+    }
+  });
 
   dateInput.addEventListener("focus", handleFirstInteraction, { once: true });
 }
+

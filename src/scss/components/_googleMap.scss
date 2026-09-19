@@ -1,7 +1,8 @@
+@use "../tools" as t;
 .map-receiver {
   width: 100%;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   transition: opacity 0.3s ease;
   opacity: 0;
 
@@ -15,4 +16,10 @@
     border: 0;
     display: block;
   }
+
+    //  &:focus-visible {
+    //    outline: 2px solid t.$colorWhite;
+    //    outline-offset: 2px;
+    //  } 
+       
 }

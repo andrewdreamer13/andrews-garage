@@ -108,8 +108,8 @@
     }
 
     &:focus-visible {
-      outline: 2px solid t.$colorWhite;
-      outline-offset: 2px;
+    background-color: rgba(t.$colorLightBg, 0.9);
+     color: t.$colorWhite;  
     }
   }
 }

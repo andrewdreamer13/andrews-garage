@@ -64,9 +64,10 @@
     }
 
     &:focus-visible {
-      outline: none;
-      box-shadow: 0 0 8px 0 var(--color-text);
-    }
+      border:none;  
+      outline: 2px solid t.$colorWhite;
+      outline-offset: 2px;
+    }         
 
     &::placeholder {
       color: rgba(t.$colorLightBg, 0.5);
@@ -130,8 +131,13 @@
         @include t.fluid-prop("font-size", 14, 18, 320, 768);
       }
     }
+
+     &:focus-visible {
+      border:none;  
+      outline: 2px solid t.$colorWhite;
+      outline-offset: 2px;
+    } 
   }
 
-  &__submit {
-  }
+ 
 }
