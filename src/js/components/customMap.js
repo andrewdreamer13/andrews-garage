@@ -1,8 +1,3 @@
-
-//import mapboxgl from "mapbox-gl";
-
-
- 
 export const initCustomMap = async (container) => {
   const { mapLat, mapLng } = container.dataset;
 
@@ -17,6 +12,14 @@ export const initCustomMap = async (container) => {
     center: [parseFloat(mapLng), parseFloat(mapLat)],
     zoom: 10,
     cooperativeGestures: true,
+    keyboard: false,
+  });
+
+  map.on("load", () => {
+    const canvas = container.querySelector(".mapboxgl-canvas");
+    if (canvas) {
+      canvas.setAttribute("tabindex", "-1");
+    }
   });
 
   if (window.innerWidth < 768) {
@@ -47,6 +50,70 @@ export const initCustomMap = async (container) => {
     .addTo(map);
 
   container.classList.add("_is-loaded");
+  container.setAttribute("tabindex", "0");
+  container.setAttribute(
+    "aria-label",
+    "Interactive map. Press Enter to interact.",
+  );
+
+  let isMapActive = false;
+
+  const setMapKeyboardActive = (active) => {
+    isMapActive = active;
+    if (active) {
+      map.keyboard.enable();
+
+      container.querySelectorAll(".mapboxgl-ctrl button").forEach((btn) => {
+        btn.setAttribute("tabindex", "0");
+      });
+      container.classList.add("_is-map-active");
+      container.setAttribute(
+        "aria-label",
+        "Map active. Use arrow keys to pan, +/- to zoom. Press Escape to exit.",
+      );
+    } else {
+      map.keyboard.disable();
+      container.querySelectorAll(".mapboxgl-ctrl button").forEach((btn) => {
+        btn.setAttribute("tabindex", "-1");
+      });
+      container.classList.remove("_is-map-active");
+      container.setAttribute(
+        "aria-label",
+        "Interactive map. Press Enter to interact.",
+      );
+    }
+  };
+
+  container.querySelectorAll(".mapboxgl-ctrl button").forEach((btn) => {
+    btn.setAttribute("tabindex", "-1");
+  });
+
+  container.addEventListener("click", () => {
+    setMapKeyboardActive(true);
+  });
+
+  container.addEventListener("keydown", (e) => {
+    if ((e.key === "Enter" || e.key === " ") && !isMapActive) {
+      e.preventDefault();
+      setMapKeyboardActive(true);
+      const firstControlBtn = container.querySelector(".mapboxgl-ctrl button");
+      if (firstControlBtn) firstControlBtn.focus();
+    }
+
+    if (e.key === "Escape" && isMapActive) {
+      e.preventDefault();
+      setMapKeyboardActive(false);
+      container.focus();
+    }
+  });
+
+  container.addEventListener("focusout", (e) => {
+    if (e.relatedTarget && container.contains(e.relatedTarget)) {
+      return;
+    }
+    setMapKeyboardActive(false);
+  });
+
   setTimeout(() => {
     map.resize();
   }, 100);
