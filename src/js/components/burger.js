@@ -54,7 +54,7 @@ export const initBurger = (btnSelector, menuSelector) => {
 
   menu.addEventListener("click", (e) => {
     if (e.target.closest("a")) {
-      setTimeout(closeMenu, 300);
+      closeMenu();
       return;
     }
 

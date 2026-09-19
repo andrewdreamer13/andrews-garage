@@ -31,16 +31,50 @@ const createResizableSwiper = (
 };
 
 export const initResizableServicesSwiper = () => {
-  createResizableSwiper("(max-width: 1240px)", ".services__cards-slider", {
+  const container = document.querySelector(".services__slider");
+  if (!container) return;
+
+  const currentEl = document.querySelector(".services__pagination-current");
+  const totalEl = document.querySelector(".services__pagination-total");
+
+  createResizableSwiper("(max-width: 1240px)", ".services__slider", {
     spaceBetween: 18,
     slidesPerView: "auto",
     speed: 500,
-    scrollbar: {
-      el: ".swiper-scrollbar",
-      draggable: true,
+    navigation: {
+      nextEl: ".services__button-next",
+      prevEl: ".services__button-prev",
+    },
+   
+    on: {
+      init: (swiper) => updateRangeFraction(swiper, currentEl, totalEl),
+      slideChange: (swiper) => updateRangeFraction(swiper, currentEl, totalEl),
+      resize: (swiper) => updateRangeFraction(swiper, currentEl, totalEl),
     },
   });
 };
+
+function updateRangeFraction(swiper, currentEl, totalEl) {
+  if (!currentEl || !totalEl) return;
+
+  const currentIndex = swiper.realIndex + 1;
+  const totalSlides = swiper.slides.length;
+
+  let visibleCount = 1;
+  if (typeof swiper.slidesPerViewDynamic === "function") {
+    visibleCount = Math.ceil(swiper.slidesPerViewDynamic());
+  }
+
+  const endRange = Math.min(currentIndex + visibleCount - 1, totalSlides);
+  if (visibleCount === 1) {
+    currentEl.textContent = currentIndex;
+  } else {
+    currentEl.textContent = `${currentIndex}-${endRange}`;
+  }
+
+  totalEl.textContent = totalSlides;
+}
+
 export const initResizableWorkflowSwiper = () => {
   createResizableSwiper("(max-width: 1230px)", ".workflow__slider", {
     spaceBetween: 10,
