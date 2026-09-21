@@ -1,3 +1,4 @@
+@use "../tools" as t;
 .preloader {
   position: fixed;
   inset: 0;
@@ -7,7 +8,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: #dfdbdb;
+  background-color: t.$colorLightGrey;
 
   transition:
     opacity 0.6s ease,
@@ -23,9 +24,9 @@
     width: 80px;
     aspect-ratio: 1;
 
-    border: 6px solid #ccc;
-    border-top-color: #333435;
-    border-bottom-color: #333435;
+    border: 6px solid transparent;
+    border-top-color: t.$colorAccent;
+    border-bottom-color: t.$colorLightBg;
     border-radius: 50%;
 
     animation: preloader-spin 0.8s linear infinite;

@@ -14,8 +14,6 @@
     text-transform: capitalize;
   }
 
-  &__text--top {
-  }
 
   &__text--bottom {
     color: t.$colorAccent;
@@ -32,9 +30,6 @@
     font-family: t.$font-24pt;
     text-align: left;
     text-transform: capitalize;
-  }
-
-  &__text--top {
   }
 
   &__text--bottom {

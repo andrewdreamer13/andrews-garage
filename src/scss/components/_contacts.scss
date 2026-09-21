@@ -23,14 +23,11 @@
     stroke: none;
   }
 
-  &__address {
-  }
-
   &__phone,
   &__email {
     position: relative;
     line-height: 1.2;
-     transition:
+    transition:
       transform 0.3s ease,
       color 0.3s ease;
 
@@ -59,11 +56,5 @@
     &:active {
       transform: scale(0.95);
     }
-  }
-
-  &__email {
-  }
-
-  &__hours {
   }
 }

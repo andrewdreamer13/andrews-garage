@@ -64,10 +64,10 @@
     }
 
     &:focus-visible {
-      border:none;  
+      border: none;
       outline: 2px solid t.$colorWhite;
       outline-offset: 2px;
-    }         
+    }
 
     &::placeholder {
       color: rgba(t.$colorLightBg, 0.5);
@@ -132,12 +132,10 @@
       }
     }
 
-     &:focus-visible {
-      border:none;  
+    &:focus-visible {
+      border: none;
       outline: 2px solid t.$colorWhite;
       outline-offset: 2px;
-    } 
+    }
   }
-
- 
 }

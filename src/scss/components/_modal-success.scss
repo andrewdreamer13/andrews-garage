@@ -16,28 +16,15 @@
     right: 10px;
     padding: 10px;
     border-radius: 8px;
-    // background-color: t.$colorAccent;
-    // isolation: isolate;
     color: t.$colorWhite;
     font-weight: 600;
     font-size: 32px;
     line-height: 1;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 
-    // &::before {
-    //   z-index: -1;
-    //   position: absolute;
-    //   inset: 0;
-    //   transform: scaleX(0);
-    //   transform-origin: center;
-    //   border-radius: 6px;
-    //   background-color: t.$colorSuccess;
-    //   content: "";
-    //   transition: transform 0.3s ease;
-    // }
     @media (hover: hover) {
       &:hover {
-        // transform: scale(1.1);
+       color: t.$colorAccent;
       }
     }
 

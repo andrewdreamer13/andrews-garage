@@ -16,10 +16,6 @@
 
   &__heading {
     border-radius: 6px;
-
-    @media (max-width: 1230px) {
-      padding: 10px 10px;
-    }
   }
 
   &__button {
@@ -27,12 +23,15 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 100%;
     padding: 16px 10px;
     gap: 30px;
    background-color: t.$colorLightBg;
     cursor: pointer;
     transition: color 0.3s ease;
+
+     @media (max-width: 1230px) {
+      padding: 10px 10px;
+    }
 
     @media (hover: hover) {
       &:hover {

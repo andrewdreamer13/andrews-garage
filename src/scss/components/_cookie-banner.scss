@@ -16,16 +16,15 @@
     opacity 0.5s ease;
 
   &--show {
-   display: block;
-   @keyframes slideUp {
+    display: block;
+    @keyframes slideUp {
       to {
-        opacity: 1;
         transform: translateY(0);
+        opacity: 1;
       }
     }
     animation: slideUp 0.5s forwards;
   }
-  
 
   &__container {
     display: flex;
@@ -79,9 +78,9 @@
     }
 
     &--decline {
-       background-color: t.$colorWhite;
-      color: t.$colorLightBg;
       border: 1px solid t.$colorLightGrey;
+      background-color: t.$colorWhite;
+      color: t.$colorLightBg;
 
       @media (hover: hover) {
         &:hover {

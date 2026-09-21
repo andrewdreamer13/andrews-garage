@@ -2,25 +2,16 @@
 import "../scss/main.scss";
 import "virtual:svg-icons-register";
 
-import gsap from "gsap";
-import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
 
-import "swiper/css";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/navigation";
 
 import { optionsData } from "./data/selectOptions.js";
-import { phoneMasks } from "./data/phoneMasks.js";
-
 import { initPreloader } from "./components/preloader.js";
 import { initBurger } from "./components/burger.js";
-import { initAppearance } from "./animations/appearance.js";
-import { initChangeTheme } from "./services/changeTheme.js";
 import { initModal } from "./components/modalManager.js";
- import { initLazySvg } from "./services/lazySvgLoader.js";
 import { initAccordion } from "./components/accordion.js";
 import { initFocusManager } from "./services/focusManager.js";
-// import {initUpButton} from "./components/upButton/js";
 import { initTabs } from "./components/tabs.js";
 import { initSliders } from "./components/sliders.js";
 import { initCookieBanner } from "./components/cookieBanner.js";
@@ -29,20 +20,15 @@ import { initFormHandler } from "./forms/formHandler.js";
 import { initResizableServicesSwiper } from "./services/matchMediaSlider.js";
 import { initResizableWorkflowSwiper } from "./services/matchMediaSlider.js";
 import {initMaps} from "./services/lazyMapLoader.js";
-import { initVideoLoader } from "./services/lazyVideoLoader.js";
-import { splitTextIntoSpans } from "./services/splitText.js";
 import { initDatePicker } from "./components/dataPicker.js";
 import { initCurrentYear } from "./helpers/currentYear.js";
 import { initSyncDataAttrWithText } from "./helpers/syncDataAttrWithText.js";
-import { initLongTextWatcher } from "./helpers/longTextWatcher.js";
 import {initTextareaResize} from "./helpers/textareaAutoResize.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("The project works");
   initPreloader();
   initBurger("#burger", ".nav-mobile");
   initSliders();
-  initChangeTheme("#theme");
   initModal();
   initAccordion("#workflow-accordion");
   initFocusManager();
@@ -53,26 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initResizableServicesSwiper();
   initResizableWorkflowSwiper();
   initMaps();
-  initVideoLoader();
   initDatePicker();
-  //  splitTextIntoSpans();
     initSyncDataAttrWithText(".footer__author", "text");
-    initLongTextWatcher(".main-title__word");
      initCurrentYear();
      initTextareaResize();
-  // initUpButton(".footer__up-button");
-
-
-(async () => {
-  try {
-    await import("./services/svgTemplates.js");
-    initLazySvg();
-  } catch (error) {
-    console.error("SVG template lazy-loading error:", error);
-    initLazySvg();
-  }
-})();
-
-
 
 });
