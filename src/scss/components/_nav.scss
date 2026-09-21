@@ -1,6 +1,7 @@
 @use "../tools" as t;
 
 .nav {
+  height: 100%;
   width: max-content;
 
   &-desktop {
@@ -65,8 +66,10 @@
   }
 
   &__link {
+    display: inline-block;
     position: relative;
     text-transform: capitalize;
+   transition: transform 0.3s ease;
 
     &::after {
       content: "";
@@ -85,6 +88,10 @@
     }
 
     @media (hover:hover) {
+      &:hover {
+        transform: translateY(-1px);
+      }
+
       &:hover::after {
         transform: translate(0, 0);
         opacity: 1;

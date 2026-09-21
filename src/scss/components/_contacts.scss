@@ -26,7 +26,39 @@
   &__address {
   }
 
-  &__phone {
+  &__phone,
+  &__email {
+    position: relative;
+    line-height: 1.2;
+     transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+
+    &::before {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      max-width: 0;
+      height: 100%;
+      overflow: hidden;
+      content: attr(data-text);
+      color: t.$colorAccent;
+      white-space: nowrap;
+      transition: max-width 0.3s ease;
+    }
+    @media (hover: hover) {
+      &:hover::before {
+        max-width: 100%;
+      }
+
+      &:hover {
+        color: rgba(t.$colorWhite, 0);
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
   }
 
   &__email {
