@@ -8,7 +8,7 @@
     @include t.fluid-prop("max-width", 560, 700, 768, 1000);
     @include t.flex-mix(flex-start, center);
     @include t.fluid-prop("gap", 10, 30, 320, 950);
-    z-index: 10;
+    z-index: 5;
     position: relative;
     margin-bottom: -60px;
     padding: 10px 0 10px 0;

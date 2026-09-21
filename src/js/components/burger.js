@@ -21,7 +21,7 @@ export const initBurger = (btnSelector, menuSelector) => {
   const openMenu = () => {
     burger.classList.add("is-active");
     menu.classList.add("is-open");
-    body.classList.add("menu-open");
+    body.classList.add("lock");
 
     burger.setAttribute("aria-expanded", "true");
     burger.setAttribute("aria-label", "Close menu");
@@ -33,7 +33,7 @@ export const initBurger = (btnSelector, menuSelector) => {
   const closeMenu = () => {
     burger.classList.remove("is-active");
     menu.classList.remove("is-open");
-    body.classList.remove("menu-open");
+    body.classList.remove("lock");
 
     burger.setAttribute("aria-expanded", "false");
     burger.setAttribute("aria-label", "Open menu");

@@ -1,7 +1,5 @@
-
 import "../scss/main.scss";
 import "virtual:svg-icons-register";
-
 
 // import "swiper/css";
 // import "swiper/css/navigation";
@@ -19,11 +17,12 @@ import { initCustomSelect } from "./components/customSelect.js";
 import { initFormHandler } from "./forms/formHandler.js";
 import { initResizableServicesSwiper } from "./services/matchMediaSlider.js";
 import { initResizableWorkflowSwiper } from "./services/matchMediaSlider.js";
-import {initMaps} from "./services/lazyMapLoader.js";
+import { initMaps } from "./services/lazyMapLoader.js";
 import { initDatePicker } from "./components/dataPicker.js";
 import { initCurrentYear } from "./helpers/currentYear.js";
 import { initSyncDataAttrWithText } from "./helpers/syncDataAttrWithText.js";
-import {initTextareaResize} from "./helpers/textareaAutoResize.js";
+import { initTextareaResize } from "./helpers/textareaAutoResize.js";
+import { initStickyHeader } from "./services/stickyHeader.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initPreloader();
@@ -40,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initResizableWorkflowSwiper();
   initMaps();
   initDatePicker();
-    initSyncDataAttrWithText(".footer__author", "text");
-     initCurrentYear();
-     initTextareaResize();
-
+  initSyncDataAttrWithText(".footer__author", "text");
+  initCurrentYear();
+  initTextareaResize();
+  initStickyHeader();
 });
