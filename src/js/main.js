@@ -23,6 +23,7 @@ import { initCurrentYear } from "./helpers/currentYear.js";
 import { initSyncDataAttrWithText } from "./helpers/syncDataAttrWithText.js";
 import { initTextareaResize } from "./helpers/textareaAutoResize.js";
 import { initStickyHeader } from "./services/stickyHeader.js";
+import {initLazyImages} from "./helpers/lazyImages.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initPreloader();
@@ -43,4 +44,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initCurrentYear();
   initTextareaResize();
   initStickyHeader();
+  initLazyImages();
 });

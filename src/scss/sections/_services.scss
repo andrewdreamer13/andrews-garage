@@ -78,9 +78,9 @@
     display: none !important;
 
     @media (max-width: 1240px) {
-     
-      width: 100%;
       display: flex !important;
+
+      width: 100%;
       @include t.flex-mix(center, center, row, 5px);
       padding: 10px 0;
       font-weight: 600;
@@ -90,8 +90,7 @@
   &__pagination-current,
   &__pagination-total,
   &__pagination-divider {
-      color: t.$colorAccent;
-
+    color: t.$colorAccent;
   }
 
   &__cards.swiper-wrapper {
@@ -109,7 +108,6 @@
       width: max-content;
       min-width: 100%;
       height: 370px;
-      // padding-bottom: 20px;
       gap: 0;
     }
   }
@@ -118,76 +116,21 @@
     flex: 0 0 286px;
     width: 286px;
     margin-top: 0 !important;
-    border-radius: 15px;
-    background-image: url("/src/assets/img/webp/service-1.webp");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: t.$colorDarkBg;
-
-    &:nth-child(2) {
-      background-image: url("/src/assets/img/webp/service-2.webp");
-    }
-    &:nth-child(3) {
-      background-image: url("/src/assets/img/webp/service-3.webp");
-    }
-    &:nth-child(4) {
-      background-image: url("/src/assets/img/webp/service-4.webp");
-    }
-    &:nth-child(5) {
-      background-image: url("/src/assets/img/webp/service-5.webp");
-    }
-    &:nth-child(6) {
-      background-image: url("/src/assets/img/webp/service-6.webp");
-    }
-    &:nth-child(7) {
-      background-image: url("/src/assets/img/webp/service-7.webp");
-    }
-    &:nth-child(8) {
-      background-image: url("/src/assets/img/webp/service-8.webp");
-    }
-    &:nth-child(9) {
-      background-image: url("/src/assets/img/webp/service-9.webp");
-    }
-    &:nth-child(10) {
-      background-image: url("/src/assets/img/webp/service-10.webp");
-    }
-    &:nth-child(11) {
-      background-image: url("/src/assets/img/webp/service-11.webp");
-    }
-    &:nth-child(12) {
-      background-image: url("/src/assets/img/webp/service-12.webp");
-    }
-  }
-
-  @media (max-width: 1240px) {
-    .swiper-scrollbar {
-      position: relative;
-      width: 100%;
-      height: 6px;
-      overflow: hidden;
-      border-radius: 3px;
-      background-color: rgba(t.$colorWhite, 0.1);
-
-      &-drag {
-        height: 100%;
-        border-radius: 3px;
-        background-color: t.$colorAccent;
-        cursor: pointer;
-      }
-    }
+  
+   
   }
 
   &__card {
+    position: relative;
     width: 286px;
     height: 370px;
-    isolation: isolate;
-    @include t.flex-mix(flex-start, flex-start, column);
-    position: relative;
     padding: 113px 20px 20px 20px;
+    isolation: isolate;
+      border-radius: 15px;
+      overflow: hidden;
 
     &::before {
-      z-index: -1;
+      z-index: 0;
       position: absolute;
       top: -5px;
       right: -5px;
@@ -197,6 +140,23 @@
       content: "";
       pointer-events: none;
     }
+  }
+
+  &__card-bg {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+  }
+
+  &__card-svg,
+  &__card-title,
+  &__card-description,
+  &__card-price-box {
+    z-index: 2;
+    position: relative;
   }
 
   &__card-svg {

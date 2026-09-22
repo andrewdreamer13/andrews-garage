@@ -1,31 +1,47 @@
 export const initStickyHeader = () => {
   const header = document.querySelector(".header");
-
   if (!header) return;
 
   let lastScrollY = window.scrollY;
   let ticking = false;
 
+  const threshold = 700;
+
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-    const threshold = 700;
-    if (currentScrollY < 0) return;
+
+    if (currentScrollY < 0) {
+      ticking = false;
+      return;
+    }
+
+    const isScrollingDown = currentScrollY > lastScrollY;
 
     if (currentScrollY <= threshold) {
-      header.classList.remove("header--sticky", "header--hidden");
-    } else {
-      if (
-        currentScrollY > lastScrollY &&
-        !header.classList.contains("header--hidden")
-      ) {
-        header.classList.add("header--hidden");
-        header.classList.remove("header--sticky");
-      } else if (
-        currentScrollY < lastScrollY &&
-        header.classList.contains("header--hidden")
-      ) {
+      if (header.classList.contains("header--scrolled")) {
+        header.classList.remove("header--scrolled");
+      }
+
+      if (currentScrollY === 0) {
         header.classList.remove("header--hidden");
-        header.classList.add("header--sticky");
+      } else {
+        if (!header.classList.contains("header--hidden")) {
+          header.classList.add("header--hidden");
+        }
+      }
+    } else {
+      if (!header.classList.contains("header--scrolled")) {
+        header.classList.add("header--scrolled");
+      }
+
+      if (isScrollingDown) {
+        if (!header.classList.contains("header--hidden")) {
+          header.classList.add("header--hidden");
+        }
+      } else {
+        if (header.classList.contains("header--hidden")) {
+          header.classList.remove("header--hidden");
+        }
       }
     }
 
@@ -33,10 +49,14 @@ export const initStickyHeader = () => {
     ticking = false;
   };
 
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(handleScroll);
-      ticking = true;
-    }
-  });
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
 };
