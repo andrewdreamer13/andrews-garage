@@ -1,27 +1,83 @@
-
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>{=$title}</title>
-  <meta name="description" content="{=$description}" />
-  <meta name="keywords" content="{=$keywords}" />
-  <link rel="canonical" href="{=$site-url}" />
+  <meta
+    name="description"
+    content="{=$description}"
+  />
+  <meta
+    name="keywords"
+    content="{=$keywords}"
+  />
+  <link
+    rel="canonical"
+    href="{=$site-url}"
+  />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{=$site-url}" />
-  <meta property="og:title" content="{=$title}" />
-  <meta property="og:description" content="{=$description}" />
-  <meta property="og:image" content="{=$site-url}{=$og-image}" />
+  <meta
+    property="og:type"
+    content="website"
+  />
+  <meta
+    property="og:url"
+    content="{=$site-url}"
+  />
+  <meta
+    property="og:title"
+    content="{=$title}"
+  />
+  <meta
+    property="og:description"
+    content="{=$description}"
+  />
+  <meta
+    property="og:image"
+    content="{=$site-url}{=$og-image}"
+  />
 
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="{=$site-url}" />
-  <meta property="twitter:title" content="{=$title}" />
-  <meta property="twitter:description" content="{=$description}" />
-  <meta property="twitter:image" content="{=$site-url}{=$og-image}" />
+  <meta
+    property="twitter:card"
+    content="summary_large_image"
+  />
+  <meta
+    property="twitter:url"
+    content="{=$site-url}"
+  />
+  <meta
+    property="twitter:title"
+    content="{=$title}"
+  />
+  <meta
+    property="twitter:description"
+    content="{=$description}"
+  />
+  <meta
+    property="twitter:image"
+    content="{=$site-url}{=$og-image}"
+  />
 
-  <meta name="theme-color" content="{=$theme-color}" />
+  <meta
+    name="theme-color"
+    content="{=$theme-color}"
+  />
 
-  <link rel="icon" type="image/svg+xml" href="favicon.png" />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="favicon.png"
+  />
+
+  <link
+    rel="preload"
+    as="image"
+    href="/src/assets/img/hero-bg-mob.webp"
+    type="image/webp"
+    media="(max-width: 900px)"
+    fetchpriority="high"
+  />
 </head>

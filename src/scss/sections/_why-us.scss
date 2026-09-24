@@ -57,7 +57,7 @@
     margin-bottom: 8px;
     font-weight: 500;
     line-height: 1.3;
-    font-family: t.$font-24pt;
+    font-family: t.$font;
     @include t.fluid-prop("font-size", 18, 24, 320, 768);
   }
 

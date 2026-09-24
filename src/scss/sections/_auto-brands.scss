@@ -2,30 +2,32 @@
 
 .auto-brands {
   width: 100%;
-  background-color: t.$colorDarkBg;
   padding: 15px 0;
+  background-color: t.$colorDarkBg;
 
-    &__slider {
-    }
+  &__slider {
+    @include t.fluid-prop("height", 30, 40, 320, 768);
+    contain: layout size;
+    overflow: hidden;
+  }
 
-    &__wrapper {
-     transition-timing-function: linear !important;
+  &__wrapper {
+    transition-timing-function: linear !important;
+  }
 
-    }
-
-    &__slide {
-     width: auto !important;      
-    flex-shrink: 0;    
+  &__slide {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    }
+    width: auto !important;
+  }
 
-    &__svg {
-      fill:t.$colorAccent;
-      @include t.fluid-prop("width", 60, 120, 320, 768);
-      @include t.fluid-prop("height", 30, 40, 320, 768);
-      max-width: none;
-      object-fit: contain;
-    }
+  &__svg {
+    fill: t.$colorAccent;
+    @include t.fluid-prop("width", 60, 120, 320, 768);
+    @include t.fluid-prop("height", 30, 40, 320, 768);
+    max-width: none;
+    object-fit: contain;
+  }
 }

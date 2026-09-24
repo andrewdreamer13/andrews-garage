@@ -1,7 +1,10 @@
 export const initLazyImages = () => {
+  const imagesMap = import.meta.glob("/src/assets/img/webp/*.webp", {
+    eager: true,
+    import: "default",
+  });
+
   const lazyImages = document.querySelectorAll("[data-src]");
-  console.log(lazyImages);
-  
 
   const imageObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -9,9 +12,18 @@ export const initLazyImages = () => {
         if (!entry.isIntersecting) return;
 
         const image = entry.target;
+        const dataSrc = image.dataset.src;
 
-        image.src = image.dataset.src;
-        image.removeAttribute("data-src");
+        if (dataSrc) {
+          const fileName = dataSrc.split("/").pop();
+
+          const realUrl = Object.entries(imagesMap).find(([path]) =>
+            path.endsWith(fileName),
+          )?.[1];
+
+          image.src = realUrl || dataSrc;
+          image.removeAttribute("data-src");
+        }
 
         observer.unobserve(image);
       });
@@ -23,5 +35,3 @@ export const initLazyImages = () => {
 
   lazyImages.forEach((image) => imageObserver.observe(image));
 };
-
-

@@ -1,5 +1,13 @@
-import Swiper from "swiper/bundle";
-import "swiper/css/bundle";
+
+import Swiper from "swiper";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+
+Swiper.use([Navigation, Pagination, Autoplay, EffectFade]);
+
 
 export const initSliders = () => {
   autoBrandsSlider();
@@ -21,21 +29,6 @@ const autoBrandsSlider = () => {
       disableOnInteraction: false,
     },
 
-    // Если пагинация, стрелки и скроллбар не нужны для ленты брендов, их можно удалить.
-    /*
-    pagination: {
-      el: ".swiper-pagination",
-    },
-
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-
-    scrollbar: {
-      el: ".swiper-scrollbar",
-    },
-    */
   });
 };
 const toolBrandsSlider = () => {

@@ -8,9 +8,9 @@
     display: block;
     color: t.$colorWhite;
     @include t.fluid-prop("font-size", 37, 95, 320, 900);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.1;
-    font-family: t.$font-28pt;
+    font-family: t.$font;
     text-transform: capitalize;
   }
 
@@ -25,9 +25,9 @@
     display: block;
     color: t.$colorWhite;
     @include t.fluid-prop("font-size", 30, 58, 320, 900);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.1;
-    font-family: t.$font-24pt;
+    font-family: t.$font;
     text-align: left;
     text-transform: capitalize;
   }

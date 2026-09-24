@@ -26,11 +26,11 @@
 
   &__text {
     color: t.$colorAccent;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 35px;
     line-height: 1.2;
     @include t.fluid-prop("font-size", 24, 35, 320, 768);
-    font-family: t.$font-24pt;
+    font-family: t.$font;
     
   }
 }

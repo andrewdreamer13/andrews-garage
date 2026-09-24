@@ -1,10 +1,13 @@
-import { gsap } from "gsap";
 
-export const initSuccessOpenAnimation = (modalElement) => {
+
+export const initSuccessOpenAnimation = async (modalElement) => {
   if (!modalElement) return;
 
   const content = modalElement.querySelector(".modal__content");
   if (!content) return;
+
+ 
+  const { gsap } = await import("gsap");
 
   const tl = gsap.timeline();
 
@@ -31,12 +34,14 @@ export const initSuccessOpenAnimation = (modalElement) => {
   );
 };
 
-export const initSuccessCloseAnimation = (modalElement, onComplete) => {
+export const initSuccessCloseAnimation = async (modalElement, onComplete) => {
   if (!modalElement) return;
 
   const content =
     modalElement.querySelector(".modal__content") ||
     modalElement.querySelector(".success-modal");
+
+  const { gsap } = await import("gsap");
 
   const tl = gsap.timeline({
     onComplete: () => {
@@ -66,3 +71,4 @@ export const initSuccessCloseAnimation = (modalElement, onComplete) => {
     "-=0.1",
   );
 };
+

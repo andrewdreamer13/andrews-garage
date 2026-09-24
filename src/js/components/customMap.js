@@ -1,3 +1,4 @@
+import pinIcon from "../../assets/icons/contacts/map-pin-2.svg";
 export const initCustomMap = async (container) => {
   const { mapLat, mapLng } = container.dataset;
 
@@ -39,7 +40,7 @@ export const initCustomMap = async (container) => {
 
   const el = document.createElement("div");
   el.className = "custom-marker";
-  el.style.backgroundImage = 'url("/src/assets/icons/contacts/map-pin-2.svg")';
+  el.style.backgroundImage = `url("${pinIcon}")`;
   el.style.width = "40px";
   el.style.height = "40px";
   el.style.backgroundSize = "cover";

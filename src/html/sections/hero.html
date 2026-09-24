@@ -2,11 +2,29 @@
   class="hero"
   id="hero"
 >
+  <picture class="hero__bg">
+    <source
+      media="(max-width: 900px)"
+      srcset="src/assets/img/webp/hero-mob-bg.webp"
+      type="image/webp"
+    />
+    <img
+      src="src/assets/img/webp/hero-bg.webp"
+      alt="Red Ford Raptor"
+      fetchpriority="high"
+      loading="eager"
+      width="1440"
+      height="700"
+    />
+  </picture>
   <div class="container">
     <div class="hero__inner">
       <h1 class="main-title">
         <span class="main-title__text main-title__text--top"> drive with </span>
-        <span class="main-title__text main-title__text--bottom" translate="no">
+        <span
+          class="main-title__text main-title__text--bottom"
+          translate="no"
+        >
           andrew's garage
         </span>
       </h1>

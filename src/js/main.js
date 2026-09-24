@@ -1,11 +1,9 @@
 import "../scss/main.scss";
 import "virtual:svg-icons-register";
 
-// import "swiper/css";
-// import "swiper/css/navigation";
 
 import { optionsData } from "./data/selectOptions.js";
-import { initPreloader } from "./components/preloader.js";
+ import { initPreloader } from "./components/preloader.js";
 import { initBurger } from "./components/burger.js";
 import { initModal } from "./components/modalManager.js";
 import { initAccordion } from "./components/accordion.js";
@@ -18,7 +16,7 @@ import { initFormHandler } from "./forms/formHandler.js";
 import { initResizableServicesSwiper } from "./services/matchMediaSlider.js";
 import { initResizableWorkflowSwiper } from "./services/matchMediaSlider.js";
 import { initMaps } from "./services/lazyMapLoader.js";
-import { initDatePicker } from "./components/dataPicker.js";
+import { initDatePicker } from "./components/datapicker.js";
 import { initCurrentYear } from "./helpers/currentYear.js";
 import { initSyncDataAttrWithText } from "./helpers/syncDataAttrWithText.js";
 import { initTextareaResize } from "./helpers/textareaAutoResize.js";
@@ -26,7 +24,7 @@ import { initStickyHeader } from "./services/stickyHeader.js";
 import {initLazyImages} from "./helpers/lazyImages.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  initPreloader();
+   initPreloader();
   initBurger("#burger", ".nav-mobile");
   initSliders();
   initModal();

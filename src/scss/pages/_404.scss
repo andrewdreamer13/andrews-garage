@@ -10,7 +10,8 @@
   padding: 20px 10px;
   background-color: t.$colorDarkBg;
   color: t.$colorWhite;
-  font-family: t.$font-18pt;
+  font-family: t.$font;
+  font-weight: 400;
   text-align: center;
 
   &__container {
@@ -37,10 +38,10 @@
   &__title {
     margin-bottom: 1rem;
     color: t.$colorAccent;
-    font-weight: 800;
+    font-weight: 700;
      @include t.fluid-prop("font-size", 26, 44, 320, 768);
     line-height: 1.2;
-    font-family: t.$font-24pt;
+    font-family: t.$font;
   }
 
   &__text {

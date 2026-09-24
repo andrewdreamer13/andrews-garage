@@ -32,6 +32,7 @@
     color: t.$colorAccent;
     font-weight: 500;
     cursor: pointer;
+    user-select: none;
     transition:
       background-color 0.3s,
       color 0.3s;
