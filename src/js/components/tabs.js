@@ -8,6 +8,13 @@ export const initTabs = (tabsSelector) => {
     const buttons = tabs.querySelectorAll(".tabs__button");
     const panels = tabs.querySelectorAll(".tabs__panel");
 
+    // Инициализация: прячем неактивные панели от фокуса сразу при загрузке
+    panels.forEach((panel) => {
+      if (!panel.classList.contains("tabs__panel--active")) {
+        panel.setAttribute("inert", "");
+      }
+    });
+
     tabs.addEventListener("click", (e) => {
       const button = e.target.closest(".tabs__button");
       if (!button || button.classList.contains("tabs__button--active")) return;
@@ -23,6 +30,7 @@ export const initTabs = (tabsSelector) => {
       panels.forEach((panel) => {
         panel.classList.remove("tabs__panel--active");
         panel.setAttribute("aria-hidden", "true");
+        panel.setAttribute("inert", ""); 
       });
 
       button.classList.add("tabs__button--active");
@@ -30,6 +38,7 @@ export const initTabs = (tabsSelector) => {
 
       targetPanel.classList.add("tabs__panel--active");
       targetPanel.setAttribute("aria-hidden", "false");
+      targetPanel.removeAttribute("inert"); 
 
       targetPanel.dispatchEvent(
         new CustomEvent("tab-switched", {
@@ -40,3 +49,4 @@ export const initTabs = (tabsSelector) => {
     });
   });
 };
+

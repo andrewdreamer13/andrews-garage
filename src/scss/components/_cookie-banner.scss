@@ -1,7 +1,7 @@
 @use "../tools" as t;
 
 .cookie-banner {
-  display: none;
+  visibility: hidden;
   z-index: 9999;
   position: fixed;
   bottom: 0;
@@ -16,7 +16,8 @@
     opacity 0.5s ease;
 
   &--show {
-    display: block;
+    visibility: visible;
+    pointer-events: auto;
     @keyframes slideUp {
       to {
         transform: translateY(0);
@@ -36,7 +37,6 @@
     border-radius: 12px;
     background-color: t.$colorWhite;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    pointer-events: auto;
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -60,20 +60,21 @@
 
   &__btn {
     padding: 10px 20px;
-    border: none;
     border-radius: 6px;
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
 
     &--accept {
       background-color: t.$colorLightBg;
       color: t.$colorWhite;
+    }
 
-      @media (hover: hover) {
-        &:hover {
-          background-color: t.$colorLightGrey;
-          color: t.$colorLightBg;
-        }
+    @media (hover: hover) {
+      &:hover {
+        background-color: t.$colorLightGrey;
+        color: t.$colorLightBg;
       }
     }
 
@@ -87,6 +88,11 @@
           background-color: t.$colorLightGrey;
         }
       }
+    }
+
+    &:focus-visible {
+      outline-color: t.$colorLightBg;
+      outline-offset: 2px;
     }
 
     &:active {
