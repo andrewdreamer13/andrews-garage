@@ -8,7 +8,6 @@ export const initTabs = (tabsSelector) => {
     const buttons = tabs.querySelectorAll(".tabs__button");
     const panels = tabs.querySelectorAll(".tabs__panel");
 
-    // Инициализация: прячем неактивные панели от фокуса сразу при загрузке
     panels.forEach((panel) => {
       if (!panel.classList.contains("tabs__panel--active")) {
         panel.setAttribute("inert", "");
